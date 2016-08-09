@@ -9,18 +9,18 @@ class FossGalaxyBot(irc.bot.SingleServerIRCBot):
 
         self.lines = []
 
-    def on_nicknameinuse(self, c, e):
+    def on_nicknameinuse(self, conn, event):
         c.nick(c.get_nickname() + "_")
 
-    def on_welcome(self, c, e):
+    def on_welcome(self, conn, event):
         c.join(self.channel)
 
-    def on_pubmsg(self, c, e):
-        if 'uc_pybot' not in e.source:
-            self.lines.append(e.arguments)
-        
+    def on_pubmsg(self, conn, event):
+        if 'uc_pybot' not in event.source:
+            self.lines.append(event.arguments)
+
         text = '{} lines spoken'.format(len(self.lines))
-        c.privmsg('#fossgalaxy', text)
+        conn.privmsg(self.channel, text)
 
 if __name__ == '__main__':
     bot = FossGalaxyBot('#fossgalaxy', 'uc_pybot', 'irc.freenode.net')
