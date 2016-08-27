@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
 
-import irc.bot
+from irc.bot import SingleServerIRCBot
 
-class FossGalaxyBot(irc.bot.SingleServerIRCBot):
-    def __init__(self, channel, nickname, server, port=6667):
-        irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, 'UC Botty McBotface')
-        self.channel = channel
+from config import Config
 
-        self.lines = []
+class FossGalaxyBot(SingleServerIRCBot):
+    def __init__(self, config):
+        SingleServerIRCBot.__init__(self, [(config.server, config.port)],
+                                    config.nick, config.realname)
+
+        self._channels = config.channels
+        self._lines = []
 
     def on_nicknameinuse(self, conn, event):
-        c.nick(c.get_nickname() + "_")
+        conn.nick(c.get_nickname() + "_")
 
     def on_welcome(self, conn, event):
-        c.join(self.channel)
+        for channel in self._channels:
+            conn.join(channel)
 
     def on_pubmsg(self, conn, event):
         if 'uc_pybot' not in event.source:
-            self.lines.append(event.arguments)
+            self._lines.append(event.arguments)
 
-        text = '{} lines spoken'.format(len(self.lines))
-        conn.privmsg(self.channel, text)
+        text = '{} lines spoken'.format(len(self._lines))
+        conn.privmsg(event.target, text)
 
 if __name__ == '__main__':
-    bot = FossGalaxyBot('#fossgalaxy', 'uc_pybot', 'irc.freenode.net')
+    config = Config()
+    bot = FossGalaxyBot(config)
     bot.start()
