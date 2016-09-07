@@ -8,5 +8,8 @@ class Sympy(BotPlugin):
 
     @botcmd
     def calc(self, message, args):
+        if not args:
+            return "**Usage**: !calc <expression>"
+
         e = sympify(args)
         return "```{} = {}```".format(args, + e)

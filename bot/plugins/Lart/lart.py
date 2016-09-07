@@ -21,6 +21,9 @@ class Lart(BotPlugin):
     @botcmd
     def lart(self, message, args):
         """Insult a target"""
+        if not args:
+            return "**Usage**: !lart <target>"
+
         try:
             lart = choice(self.larts)
             return lart.format(args)
@@ -30,6 +33,8 @@ class Lart(BotPlugin):
     @botcmd
     def lart_add(self, message, args):
         """Add a lart, requires a part '{}' which will be replaced with target"""
+        if not args:
+            return "**Usage**: !lart add <pattern>"
         if '{}' not in args:
            return "**Error**: '{}' not in message"
 
@@ -45,6 +50,9 @@ class Lart(BotPlugin):
     @botcmd
     def lart_get(self, message, args):
         """Gets the format string of a specific lart"""
+        if not args:
+            return "**Usage**: !lart get <id>"
+
         try:
             return "{}".format(self.larts[int(args)])
         except (IndexError, ValueError) as e:
@@ -53,6 +61,9 @@ class Lart(BotPlugin):
     @botcmd
     def lart_remove(self, message, args):
         """Remove a lart from the database"""
+        if not args:
+            return "**Usage**: !lart remove <id>"
+
         try:
             del self.larts[int(args)]
             return "Lart {} removed".format(int(args))
