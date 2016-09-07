@@ -1,0 +1,9 @@
+[Core]
+name = Lart
+module = lart
+
+[Documentation]
+description = Issue larts to people
+
+[Python]
+version = 3
