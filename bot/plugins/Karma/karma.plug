@@ -7,6 +7,3 @@ description = Karma service
 
 [Python]
 version = 3
-
-[Errbot]
-
