@@ -1,15 +1,25 @@
 import logging
 
+# Core config
+
 BACKEND = 'IRC'  # defaults to XMPP
 STORAGE = 'Shelf'  # defaults to filestorage (python shelf).
 BOT_DATA_DIR = './log'
-BOT_EXTRA_PLUGIN_DIR = None
+
+# Plugin config
+
+BOT_EXTRA_PLUGIN_DIR = 'plugins'
 PLUGINS_CALLBACK_ORDER = (None, )
+
+# Logging config
+
 BOT_LOG_FILE = BOT_DATA_DIR + '/err.log'
 BOT_LOG_LEVEL = logging.INFO
 BOT_LOG_SENTRY = False
 SENTRY_DSN = ''
 SENTRY_LOGLEVEL = BOT_LOG_LEVEL
+
+# Account config
 
 BOT_IDENTITY = {
     'nickname' : 'uc_errbot',
