@@ -1,0 +1,9 @@
+[Core]
+name = DateTime
+module = datetime
+
+[Documentation]
+description = Functions to do with dates and times
+
+[Python]
+version = 3
