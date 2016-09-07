@@ -18,3 +18,9 @@ class Datetime(BotPlugin):
     @botcmd
     def time(self, message, args):
         return "The time is " + self._get_date_time('%X')
+
+    @botcmd
+    def strftime(self, message, args):
+        if not args:
+            return "**Usage**: !datetime strftime <format>"
+        return "The date and time is " + self._get_date_time(args)
