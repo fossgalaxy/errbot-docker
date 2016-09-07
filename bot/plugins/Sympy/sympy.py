@@ -8,6 +8,7 @@ class Sympy(BotPlugin):
 
     @botcmd
     def calc(self, message, args):
+        """Calculates the simplifed form of a mathmatical expression"""
         if not args:
             return "**Usage**: !calc <expression>"
 
