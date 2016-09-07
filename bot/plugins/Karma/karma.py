@@ -12,7 +12,11 @@ class Karma(BotPlugin):
         try:
             self.karma = self['karma']
         except KeyError:
-            self.karma = self['karma'] = defaultdict(int)
+            self.karma = defaultdict(int)
+
+    def deactivate(self):
+        super().deactivate()
+        self['karma'] = self.karma
 
     @botcmd
     def karma_add(self, message, args):
