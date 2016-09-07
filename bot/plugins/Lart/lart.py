@@ -69,3 +69,19 @@ class Lart(BotPlugin):
             return "Lart {} removed".format(int(args))
         except (IndexError, ValueError) as e:
             return "**Error**: {}".format(e)
+
+    @botcmd(split_args_with=None)
+    def lart_edit(self, message, args):
+        """Edit a lart in the database"""
+        if not args:
+            return "**Usage**: !lart edit <id>"
+        if '{}' not in args:
+            return "**Error**: '{}' not in message"
+
+        try:
+            i = int(args[0])
+            text = ' '.join(args[1:])
+            self.larts[i] = text
+            return "Changed lart {} to {}".format(i, text)
+        except IndexError:
+            return "**Error: lart {} doesn't exist".format(id)
