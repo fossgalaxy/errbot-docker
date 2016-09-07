@@ -15,8 +15,8 @@ class Karma(BotPlugin):
             self.karma = defaultdict(int)
 
     def deactivate(self):
-        super().deactivate()
         self['karma'] = self.karma
+        super().deactivate()
 
     @botcmd
     def karma_add(self, message, args):

@@ -15,8 +15,8 @@ class Lart(BotPlugin):
             self.larts = []
 
     def deactivate(self):
-        super().deactivate()
         self['larts'] = self.larts
+        super().deactivate()
 
     @botcmd
     def lart(self, message, args):
