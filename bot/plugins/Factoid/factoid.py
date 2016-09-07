@@ -35,18 +35,23 @@ class Factoid(BotPlugin):
             return "**Usage**: !factoid get <name>"
 
         try:
-            return self.factoids    [args]
+            return self.factoids[args]
         except KeyError:
             return "**Error**: factoid '{}' not in database".format(args)
 
     @botcmd
     def factoid_list(self, message, args):
         """Gets a list of the factoids in the database"""
-        for n, v in self.factoids.items():
-            yield "{}: {}".format(n, v)
+        if not self.factoids:
+            yield "There are no factoids"
+
+        for name in sorted(self.factoids.keys()):
+            yield name
 
     @botcmd
     def factoid_random(self, message, args):
+        if not self.factoids:
+            return "There are no factoids"
         rand = choice(list(self.factoids.items()))
         return "{}: {}".format(rand[0], rand[1])
 
