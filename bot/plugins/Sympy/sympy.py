@@ -9,4 +9,4 @@ class Sympy(BotPlugin):
     @botcmd
     def calc(self, message, args):
         e = sympify(args)
-        return "{} = {}".format(args, e)
+        return "```{} = {}```".format(args, + e)
