@@ -22,8 +22,8 @@ class Unicode(BotPlugin):
 
         try:
             return ''.join([chr(int(i)) for i in args.split()])
-        except ValueError as e:
-            return "**Error**: {}".format(e)
+        except ValueError:
+            return "**Error**: Needs integers"
 
     @botcmd
     def unicode_lookup(self, message, args):

@@ -29,10 +29,8 @@ class Factoid(BotPlugin):
     @botcmd(split_args_with=None)
     def factoid_add(self, message, args):
         """Add a factoid to the database"""
-        if not args:
-            return "**Usage**: !factoid add <name> <text>"
         if len(args) < 2:
-            return "**Error**: Not enough arguments given"
+            return "**Usage**: !factoid add <name> <text>"
 
         name = args[0]
         text = ' '.join(args[1:])
@@ -64,6 +62,6 @@ class Factoid(BotPlugin):
 
         try:
             del self.factoids[args]
-            return "Deleted {} factoid".format(args)
+            return "Deleted factoid '{}'".format(args)
         except KeyError:
             return "**Error**: factoid '{}' not in database".format(args)

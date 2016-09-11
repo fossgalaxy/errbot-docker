@@ -22,7 +22,7 @@ class Karma(BotPlugin):
             return "**Usage**: !karma add <target>"
 
         self.karma[args] += 1
-        return "Karma for {} is now {}".format(args, self.karma[args])
+        return "Karma for '{}' is now {}".format(args, self.karma[args])
 
     @botcmd
     def karma_remove(self, message, args):
@@ -31,7 +31,7 @@ class Karma(BotPlugin):
             return "**Usage**: !karma remove <target>"
 
         self.karma[args] -= 1
-        return "Karma for {} is now {}".format(args, self.karma[args])     
+        return "Karma for '{}' is now {}".format(args, self.karma[args])
 
     @botcmd
     def karma(self, message, args):
@@ -39,4 +39,4 @@ class Karma(BotPlugin):
         if not args:
             return "**Usage**: !karma <target>"
 
-        return "Karma for {} is {}".format(args, self.karma[args])
+        return "Karma for '{}' is {}".format(args, self.karma[args])

@@ -52,8 +52,10 @@ class Lart(BotPlugin):
 
         try:
             return "{}".format(self.larts[int(args)])
-        except (IndexError, ValueError) as e:
-            return "**Error**: {}".format(e)
+        except IndexError:
+            return "**Error**: Lart {} not in database".format(args)
+        except ValueError:
+            return "**Error**: ID given couldn't be converted to an integer"
 
     @botcmd
     def lart_remove(self, message, args):
@@ -64,21 +66,25 @@ class Lart(BotPlugin):
         try:
             del self.larts[int(args)]
             return "Lart {} removed".format(int(args))
-        except (IndexError, ValueError) as e:
-            return "**Error**: {}".format(e)
+        except IndexError:
+            return "**Error**: Lart {} not in database".format(args)
+        except ValueError:
+            return "**Error**: ID given couldn't be converted to an integer"
 
     @botcmd(split_args_with=None)
     def lart_edit(self, message, args):
         """Edit a lart in the database"""
-        if not args:
-            return "**Usage**: !lart edit <id>"
+        if len(args) < 2:
+            return "**Usage**: !lart edit <id> <pattern>"
         if '{}' not in args:
-            return "**Error**: '{}' not in message"
+            yield "**Error**: '{}' not in message"
 
         try:
             i = int(args[0])
             text = ' '.join(args[1:])
             self.larts[i] = text
-            return "Changed lart {} to {}".format(i, text)
+            return "Changed lart {} to '{}'".format(i, text)
         except IndexError:
-            return "**Error: lart {} doesn't exist".format(id)
+            yield "**Error**: Lart {} not in database".format(i)
+        except ValueError:
+            yield "**Error**: ID given couldn't be converted to an integer"
