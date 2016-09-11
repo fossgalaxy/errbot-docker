@@ -1,4 +1,4 @@
-from sympy import sympify
+from sympy import sympify, SympifyError
 
 from errbot import BotPlugin, botcmd
 
@@ -12,5 +12,8 @@ class Sympy(BotPlugin):
         if not args:
             return "**Usage**: !calc <expression>"
 
-        e = sympify(args)
-        return "```{} = {}```".format(args, + e)
+        try:
+            e = sympify(args)
+            return "```{} = {}```".format(args, + e)
+        except SympifyError as err:
+            return "**Error**: {}".format(err)
