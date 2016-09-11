@@ -13,6 +13,7 @@ class Karma(BotPlugin):
 
     def deactivate(self):
         self['karma'] = self.karma
+
         super().deactivate()
 
     @botcmd

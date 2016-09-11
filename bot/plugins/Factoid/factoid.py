@@ -13,6 +13,7 @@ class Factoid(BotPlugin):
 
     def deactivate(self):
         self['factoids'] = self.factoids
+
         super().deactivate()
 
     @botcmd
@@ -51,6 +52,7 @@ class Factoid(BotPlugin):
         """Get a random factoid from the database"""
         if not self.factoids:
             return "There are no factoids"
+
         rand = choice(list(self.factoids.items()))
         return "{}: {}".format(rand[0], rand[1])
 
