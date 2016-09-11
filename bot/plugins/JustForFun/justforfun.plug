@@ -1,0 +1,9 @@
+[Core]
+name = JustForFun
+module = justforfun
+
+[Documentation]
+description = This is just for fun
+
+[Python]
+version = 3
