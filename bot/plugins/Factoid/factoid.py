@@ -8,10 +8,8 @@ class Factoid(BotPlugin):
 
     def activate(self):
         super().activate()
-        try:
-            self.factoids = self['factoids']
-        except KeyError:
-            self.factoids = {}
+
+        self.factoids = self.get('factoids', {})
 
     def deactivate(self):
         self['factoids'] = self.factoids

@@ -9,10 +9,7 @@ class Karma(BotPlugin):
     def activate(self):
         super().activate()
 
-        try:
-            self.karma = self['karma']
-        except KeyError:
-            self.karma = defaultdict(int)
+        self.karma = self.get('karma', defaultdict(int))
 
     def deactivate(self):
         self['karma'] = self.karma

@@ -9,10 +9,7 @@ class Lart(BotPlugin):
     def activate(self):
         super().activate()
         
-        try:
-            self.larts = self['larts']
-        except KeyError:
-            self.larts = []
+        self.larts = self.get('larts', [])
 
     def deactivate(self):
         self['larts'] = self.larts
