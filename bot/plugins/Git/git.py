@@ -15,9 +15,11 @@ class Git(BotPlugin):
         try:
             cp = subprocess.run(["git", "describe"], stdout=subprocess.PIPE,
                                 check=True)
-            version_s = cp.stdout.decode(sys.stdout.encoding).rstrip()
+            version_s = str(cp.stdout, sys.stdout.encoding).rstrip()
             return "Git version {}".format(version_s)
         except FileNotFoundError:
-            return "Git is not installed"
+            return "**Error**: Git is not installed"
         except subprocess.CalledProcessError:
-            return "No git repository found"
+            return "**Error**: No git repository found"
+        except UnicodeError:
+            return "**Error**: Couldn't convert to string"
