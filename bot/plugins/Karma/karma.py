@@ -17,6 +17,15 @@ class Karma(BotPlugin):
         super().deactivate()
 
     @botcmd
+    def karma_list(self, message, args):
+        """Prints a list of karmaed things"""
+        if self.karma:
+            l = ', '.join(self.karma.keys())
+            return "List: '{}'".format(l)
+        else:
+            return "**Warning**: Nothing in the karma database"
+
+    @botcmd
     def karma_add(self, message, args):
         """Adds karma"""
         if not args:
