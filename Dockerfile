@@ -10,8 +10,9 @@ RUN pip install -r /home/errbot/requirements.txt
 # copy bot code to it's new home
 USER errbot
 RUN mkdir -p /home/errbot/bot/ /home/errbot/bot/log
-WORKDIR /home/errbot/bot/
 ADD bot /home/errbot/bot/
 
-VOLUME ["/home/errbot/data", "/home/errbot/plugins"]
+VOLUME ["/home/errbot/bot/log"]
+
+WORKDIR /home/errbot/bot/
 CMD ["errbot"]
