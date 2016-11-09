@@ -13,3 +13,6 @@ pip install -r requirements.txt
 cd bot
 errbot
 ```
+
+## Docker repo
+In order to deploy this on our infrastructure, pushes to master trigger a build on [docker hub](https://hub.docker.com/r/fossgalaxy/errbot/)
