@@ -11,7 +11,14 @@ class Justforfun(BotPlugin):
 
         # The bot has been mentioned
         cmp_message = message.body.casefold()
-        if 'thank' in cmp_message:
-            self.send(message.to, "you're welcome")
-        if 'silly' or 'bad' in cmp_message:
-            self.send(message.to, "sorry")
+
+        good = ['thank']
+        bad = ['silly', 'bad']
+        congrat = ['congrats', 'congratulations']
+
+        if any(s in cmp_message for s in good):
+            self.send(message.to, "you're welcome", message)
+        if any(s in cmp_message for s in bad):
+            self.send(message.to, "sorry", message)
+        if any(s in cmp_message for s in congrat):
+            self.send(message.to, "thank you", message)
