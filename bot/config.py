@@ -23,14 +23,14 @@ SENTRY_LOGLEVEL = BOT_LOG_LEVEL
 # Account config
 
 BOT_IDENTITY = {
-    'nickname' : 'uc_errbot',
+    'nickname' : os.getenv("IRC_NICK", "uc_errbot"),
     # 'username' : 'err-chatbot',    # optional, defaults to nickname if omitted
     # 'password' : None,             # optional
-    'server' : 'irc.freenode.net',
-    'port': 6697,                  # optional
+    'server' : os.getenv('IRC_HOST', 'irc.freenode.net'),
+    'port': int(os.getenv('IRC_PORT', '6697')),                  # optional
     'ssl': True,                  # optional
     # 'ipv6': False,                 # optional
-    # 'nickserv_password': None,     # optional
+    'nickserv_password': os.getenv("NICKSERV_PASSWORD", None),     # optional
     ## Optional: Specify an IP address or hostname (vhost), and a
     ## port, to use when making the connection. Leave port at 0
     ## if you have no source port preference.
