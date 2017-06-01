@@ -1,4 +1,5 @@
 import logging
+import os
 
 # Core config
 
@@ -37,7 +38,8 @@ BOT_IDENTITY = {
     # 'bind_address': ('localhost', 0),
 }
 
-BOT_ADMINS = ('gbin@localhost',)
+# admins to be set via BOT_ADMINS environment variable (default to anyone connected though kat)
+BOT_ADMINS = os.getenv("BOT_ADMINS", "*!*@kat.vps.livebytes.co.uk").split(",")
 CHATROOM_PRESENCE = ('#fossgalaxy', )
 DIVERT_TO_PRIVATE = ()
 CHATROOM_RELAY = {}
