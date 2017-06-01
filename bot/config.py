@@ -27,8 +27,8 @@ BOT_IDENTITY = {
     # 'username' : 'err-chatbot',    # optional, defaults to nickname if omitted
     # 'password' : None,             # optional
     'server' : 'irc.freenode.net',
-    # 'port': 6667,                  # optional
-    # 'ssl': False,                  # optional
+    'port': 6697,                  # optional
+    'ssl': True,                  # optional
     # 'ipv6': False,                 # optional
     # 'nickserv_password': None,     # optional
     ## Optional: Specify an IP address or hostname (vhost), and a
