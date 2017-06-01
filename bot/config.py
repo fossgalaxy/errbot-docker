@@ -16,8 +16,8 @@ PLUGINS_CALLBACK_ORDER = (None, )
 
 BOT_LOG_FILE = BOT_DATA_DIR + '/err.log'
 BOT_LOG_LEVEL = logging.INFO
-BOT_LOG_SENTRY = False
-SENTRY_DSN = ''
+BOT_LOG_SENTRY = os.getenv('BOT_SENTRY_ENABLE', 'no') == 'yes'
+SENTRY_DSN = os.getenv('BOT_SENTRY_DSN', '')
 SENTRY_LOGLEVEL = BOT_LOG_LEVEL
 
 # Account config
