@@ -40,7 +40,7 @@ BOT_IDENTITY = {
 
 # admins to be set via BOT_ADMINS environment variable (default to anyone connected though kat)
 BOT_ADMINS = os.getenv("BOT_ADMINS", "*!*@kat.vps.livebytes.co.uk").split(",")
-CHATROOM_PRESENCE = ('#fossgalaxy', )
+CHATROOM_PRESENCE = ('#fossgalaxy', "#unity-coders")
 DIVERT_TO_PRIVATE = ()
 CHATROOM_RELAY = {}
 REVERSE_CHATROOM_RELAY = {}
