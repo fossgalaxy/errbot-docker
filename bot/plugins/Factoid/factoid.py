@@ -44,8 +44,7 @@ class Factoid(BotPlugin):
         if not self.factoids:
             yield "There are no factoids"
 
-        for name in sorted(self.factoids.keys()):
-            yield name
+        yield ', '.join(sorted(self.factoids))
 
     @botcmd
     def factoid_random(self, message, args):
