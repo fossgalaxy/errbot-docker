@@ -1,5 +1,6 @@
 __pycache__
 venv/
+bot/config.py
 bot/errbot.log
 bot/log
 
