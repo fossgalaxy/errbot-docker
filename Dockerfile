@@ -10,7 +10,6 @@ RUN pip install -r /home/errbot/requirements.txt
 # copy bot code to it's new home
 USER errbot
 RUN mkdir -p /home/errbot/bot/ /home/errbot/bot/log
-ADD bot /home/errbot/bot/
 
 # Use the example config as the docker one
 RUN config.skel.py config.py
