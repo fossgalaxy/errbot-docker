@@ -1,9 +1,0 @@
-[Core]
-module = sympy
-name = Sympy
-
-[Documentation]
-description = Use sympy for symbolic mathematics
-
-[Python]
-version = 3

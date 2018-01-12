@@ -1,9 +1,0 @@
-[Core]
-name = Factoid
-module = factoid
-
-[Documentation]
-description = A store of strings of text
-
-[Python]
-version = 3

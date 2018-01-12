@@ -1,9 +1,0 @@
-[Core]
-module = unicode
-name = Unicode
-
-[Documentation]
-description = Details about unicode characters
-
-[Python]
-version = 3

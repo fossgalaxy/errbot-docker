@@ -1,9 +1,0 @@
-[Core]
-name = Git
-module = git
-
-[Documentation]
-description = Git utilities
-
-[Python]
-version = 3

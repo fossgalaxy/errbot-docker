@@ -1,9 +1,0 @@
-[Core]
-name = Reminder
-module = reminder
-
-[Documentation]
-description = Allow people to add reminders
-
-[Python]
-version = 3

@@ -1,9 +1,0 @@
-[Core]
-name = Karma
-module = karma
-
-[Documentation]
-description = Karma service
-
-[Python]
-version = 3
