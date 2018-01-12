@@ -12,6 +12,9 @@ USER errbot
 RUN mkdir -p /home/errbot/bot/ /home/errbot/bot/log
 ADD bot /home/errbot/bot/
 
+# Use the example config as the docker one
+RUN config.skel.py config.py
+
 VOLUME ["/home/errbot/bot/log"]
 
 WORKDIR /home/errbot/bot/
