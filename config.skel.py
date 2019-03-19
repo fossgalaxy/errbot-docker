@@ -5,7 +5,7 @@ import os
 
 BACKEND = 'IRC'  # defaults to XMPP
 STORAGE = 'Shelf'  # defaults to filestorage (python shelf).
-BOT_DATA_DIR = './log'
+BOT_DATA_DIR = '/home/errbot/bot/data'
 
 # Plugin config
 
