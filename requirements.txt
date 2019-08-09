@@ -1,2 +1,2 @@
-errbot==5.2
-irc==17.0
+errbot==6.1.1
+irc==17.1
