@@ -9,16 +9,15 @@ BOT_DATA_DIR = '/home/errbot/bot/data'
 
 # Plugin config
 
-BOT_EXTRA_PLUGIN_DIR = 'plugins'
+BOT_EXTRA_PLUGIN_DIR = None
 PLUGINS_CALLBACK_ORDER = (None, )
 
 # Logging config
 
 BOT_LOG_FILE = BOT_DATA_DIR + '/err.log'
 BOT_LOG_LEVEL = logging.INFO
-BOT_LOG_SENTRY = os.getenv('BOT_SENTRY_ENABLE', 'no') == 'yes'
-SENTRY_DSN = os.getenv('BOT_SENTRY_DSN', '')
-SENTRY_LOGLEVEL = BOT_LOG_LEVEL
+
+BOT_LOG_SENTRY = False
 
 # Account config
 
@@ -41,6 +40,27 @@ BOT_IDENTITY = {
 # admins to be set via BOT_ADMINS environment variable (default to anyone connected though moggy)
 BOT_ADMINS = os.getenv("BOT_ADMINS", "*!*@moggy.vps.webpigeon.me.uk").split(",")
 CHATROOM_PRESENCE = ('#fossgalaxy',)
+
+# QOL improvements
+BOT_PREFIX_OPTIONAL_ON_CHAT = True
+OT_ALT_PREFIXES = ('Err',)
+
+# Avoid spam
 DIVERT_TO_PRIVATE = ()
+DIVERT_TO_THREAD = ()
+
 CHATROOM_RELAY = {}
 REVERSE_CHATROOM_RELAY = {}
+
+# IRC options
+IRC_CHANNEL_RATE = 1  # Regular channel messages
+IRC_PRIVATE_RATE = 1  # Private messages
+IRC_RECONNECT_ON_KICK = 5  # Reconnect back to a channel after a kick (in seconds)
+                            # Put it at None if you don't want the chat to
+                            # reconnect
+IRC_RECONNECT_ON_DISCONNECT = 5  # Reconnect back to a channel after a disconnection (in seconds)
+
+COMPACT_OUTPUT = True
+
+# play nice with civil
+SUPPRESS_CMD_NOT_FOUND = True
