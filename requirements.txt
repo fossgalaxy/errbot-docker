@@ -1,2 +1,1 @@
-errbot==6.1.2
-irc==17.1
+errbot[IRC] ~= 6.1
