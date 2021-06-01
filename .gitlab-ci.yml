@@ -1,0 +1,22 @@
+image: python:3.8-alpine
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  IMAGE_NAME: ${REGISTRY_SERVER}/fossgalaxy/comet
+
+ci_container:
+  stage: publish
+  image: tomkukral/buildah
+  before_script:
+    - podman version
+    - buildah version
+    - podman login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" --authfile /tmp/docker.json "${CI_REGISTRY}"
+  script:
+    - export STORAGE_DRIVER=vfs
+    - buildah bud -t ${IMAGE_NAME}:${CI_COMMIT_SHA} .
+    - buildah push --authfile /tmp/docker.json ${IMAGE_NAME}:${CI_COMMIT_SHA} docker://${IMAGE_NAME}:snapshot
+  after_script:
+    - podman logout --authfile /tmp/docker.json "${REGISTRY_SERVER}"
+  only:
+    - master
+
