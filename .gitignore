@@ -3,5 +3,8 @@ venv/
 bot/config.py
 bot/errbot.log
 bot/log
-
+config.py
 *.db
+# pipenv
+Pipfile
+Pipfile.lock
