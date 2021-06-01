@@ -18,5 +18,5 @@ ci_container:
   after_script:
     - podman logout --authfile /tmp/docker.json "${REGISTRY_SERVER}"
   only:
-    - master
+    - matrix
 
