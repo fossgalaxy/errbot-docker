@@ -5,7 +5,7 @@ variables:
   IMAGE_NAME: ${REGISTRY_SERVER}/fossgalaxy/comet
 
 ci_container:
-  stage: publish
+  stage: build
   image: tomkukral/buildah
   before_script:
     - podman version
