@@ -16,7 +16,7 @@ BOT_DATA_DIR = os.getenv('BOT_DATA_DIR', os.path.join(BASE_DIR, 'data') )
 
 # Extra search paths
 # defaults: ./code/plugins and ./code/backends
-EXTRA_DIR = os.getenv('BOT_EXTRA_DIR', os.path.join(BASE_DIR, 'extra') )
+EXTRA_DIR = os.getenv('BOT_EXTRA_DIR', os.path.join(BASE_DIR, 'extras') )
 BOT_EXTRA_PLUGIN_DIR = os.getenv('BOT_PLUGIN_DIR', os.path.join(EXTRA_DIR, 'plugins'))
 BOT_EXTRA_BACKEND_DIR = os.getenv('BOT_BACKEND_DIR', os.path.join(EXTRA_DIR, 'backends'))
 BOT_EXTRA_STORAGE_PLUGINS_DIR = os.getenv('BOT_STORAGE_DIR', os.path.join(EXTRA_DIR, 'storage'))

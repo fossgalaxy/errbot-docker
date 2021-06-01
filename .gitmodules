@@ -1,0 +1,3 @@
+[submodule "extras/backend-matrix"]
+	path = extras/backend-matrix
+	url = https://git.fossgalaxy.com/irc/errbot/backend-matrix.git

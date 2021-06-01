@@ -13,6 +13,7 @@ RUN mkdir -p /home/errbot/bot/ /home/errbot/bot/data
 
 # Use the example config as the docker one
 add config.skel.py /home/errbot/bot/config.py
+add extras /home/errbot/bot/extras
 
 VOLUME ["/home/errbot/bot/data"]
 
