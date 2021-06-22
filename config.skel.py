@@ -34,7 +34,7 @@ BOT_LOG_SENTRY = False
 # Account config
 
 BOT_IDENTITY = {
-    'homserver': os.getenv('BOT_SERVER', 'https://matrix.fgmx.uk'),
+    'homeserver': os.getenv('BOT_SERVER', 'https://matrix.fgmx.uk'),
     'username': os.getenv('BOT_USER', '@errbot:fossgalaxy.com'),
     'password': os.getenv('BOT_PASSWORD', None),
     'device': os.getenv('BOT_DEVICE', 'errbot'),
